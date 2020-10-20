@@ -9,7 +9,6 @@ export class TaskService {
 
   createTask = (task: string) => {
     this.tasks.push(task);
-    console.log(this.tasks);
   };
 
   getTasks = () => {

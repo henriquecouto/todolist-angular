@@ -10,34 +10,3 @@
   max-width: 960px;
   width: 100%;
 }
-
-.input-add-task {
-  display: flex;
-  width: 100%;
-}
-
-.input-add-task input {
-  padding: 10px;
-  font-size: 20px;
-  border-radius: 10px;
-  border: none;
-  background-color: #212121;
-  color: #e9e9ec;
-  width: 100%;
-  margin: 5px;
-}
-
-.input-add-task input::placeholder {
-  color: #fff7;
-}
-
-.input-add-task button {
-  background-color: #212121;
-  border-radius: 10px;
-  font-size: 18px;
-  border: none;
-  padding: 10px;
-  color: #e9e9ec;
-  margin: 5px;
-  cursor: pointer;
-}

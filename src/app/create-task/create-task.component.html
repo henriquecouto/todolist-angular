@@ -1,0 +1,8 @@
+<form class="input-add-task" (submit)="addTask()">
+  <input
+    placeholder="Digite o nome da tarefa"
+    [(ngModel)]="taskName"
+    [ngModelOptions]="{ standalone: true }"
+  />
+  <button type="submit">Adicionar</button>
+</form>
