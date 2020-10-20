@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +9,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'todo-app-list';
   taskName = '';
-  taskList = [];
+
+  constructor(private taskService: TaskService) {}
 
   addTask = () => {
     if (!this.taskName) {
       return;
     }
 
-    this.taskList.push(this.taskName);
+    this.taskService.createTask(this.taskName);
     this.taskName = '';
-  };
-
-  removeTask = (index: number) => {
-    this.taskList.splice(index, 1);
   };
 }
