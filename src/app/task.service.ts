@@ -8,7 +8,7 @@ export class TaskService {
   tasks: Array<Task> = [];
 
   createTask = (task: Task) => {
-    this.tasks.push(task);
+    this.tasks.unshift(task);
   };
 
   getAllTasks = () => {
