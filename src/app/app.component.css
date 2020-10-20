@@ -40,34 +40,3 @@
   margin: 5px;
   cursor: pointer;
 }
-
-.list-container {
-  padding: 40px 5px;
-}
-
-.todo-list td {
-  padding: 10px;
-  width: 100%;
-}
-
-.todo-list {
-  border-collapse: collapse;
-  color: #e9e9ec;
-}
-
-.table-title {
-  font-size: 20px;
-  font-weight: 700;
-  border-bottom: solid 1px #e9e9ec;
-}
-
-.btn-rm {
-  background-color: #552121;
-  border-radius: 10px;
-  font-size: 18px;
-  border: none;
-  padding: 10px;
-  color: #e9e9ec;
-  margin: 5px;
-  cursor: pointer;
-}

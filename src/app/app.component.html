@@ -9,20 +9,7 @@
       <button type="submit">Adicionar</button>
     </form>
 
-    <div class="list-container">
-      <table class="todo-list">
-        <tr>
-          <td class="table-title">Nome da tarefa</td>
-          <td class="table-title">Ações</td>
-        </tr>
-        <tr *ngFor="let task of taskList; let index = index">
-          <td>{{ task }}</td>
-          <td>
-            <button class="btn-rm" (click)="removeTask(index)">Remover</button>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <app-task-list [tasks]="taskList" [remove]="removeTask"></app-task-list>
   </div>
 </div>
 

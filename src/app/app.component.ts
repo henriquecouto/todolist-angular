@@ -10,17 +10,16 @@ export class AppComponent {
   taskName = '';
   taskList = [];
 
-  addTask() {
+  addTask = () => {
     if (!this.taskName) {
       return;
     }
 
     this.taskList.push(this.taskName);
     this.taskName = '';
-    console.log(this.taskList);
-  }
+  };
 
-  removeTask(index: number) {
+  removeTask = (index: number) => {
     this.taskList.splice(index, 1);
-  }
+  };
 }

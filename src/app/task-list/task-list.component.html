@@ -1,0 +1,14 @@
+<div class="list-container">
+  <table class="todo-list">
+    <tr>
+      <td class="table-title">Nome da tarefa</td>
+      <td class="table-title">Ações</td>
+    </tr>
+    <tr *ngFor="let task of tasks; let index = index">
+      <td>{{ task }}</td>
+      <td>
+        <button class="btn-rm" (click)="remove(index)">Remover</button>
+      </td>
+    </tr>
+  </table>
+</div>
