@@ -9,7 +9,7 @@
       <td (click)="makeDone(index, !task.isDone)">
         <input type="checkbox" [checked]="task.isDone" >
       </td>
-      <td>{{ task.name }}</td>
+      <td [ngClass]="task.isDone && 'done'">{{ task.name }}</td>
       <td>
         <button class="btn-rm" (click)="remove(index)">Remover</button>
       </td>

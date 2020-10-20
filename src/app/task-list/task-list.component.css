@@ -24,6 +24,10 @@
   width: 100%
 }
 
+.done {
+  text-decoration-line: line-through;
+}
+
 .btn-rm,
 .btn-fn {
   border-radius: 10px;
