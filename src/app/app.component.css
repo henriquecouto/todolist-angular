@@ -1,11 +1,12 @@
 .app-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
 }
 
-.input-add-task-container {
+.app-container div {
   max-width: 960px;
   width: 100%;
 }
