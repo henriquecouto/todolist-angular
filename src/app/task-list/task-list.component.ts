@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Task from 'src/entities/Task';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -7,15 +8,20 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  tasks: Array<string>;
+  tasks: Array<Task>;
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.tasks = this.taskService.getTasks();
+    this.tasks = this.taskService.getAllTasks();
+    console.log(this.tasks);
   }
 
   remove = (index: number) => {
     this.taskService.deleteTask(index);
+  };
+
+  makeDone = (index: number, status: boolean) => {
+    this.taskService.setDone(index, status);
   };
 }

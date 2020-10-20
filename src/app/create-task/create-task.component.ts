@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Task from 'src/entities/Task';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class CreateTaskComponent implements OnInit {
       return;
     }
 
-    this.taskService.createTask(this.taskName);
+    this.taskService.createTask(new Task(this.taskName));
     this.taskName = '';
   };
 }

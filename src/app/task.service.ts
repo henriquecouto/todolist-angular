@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
+import Task from 'src/entities/Task';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  tasks: Array<string> = [];
-  constructor() {}
+  tasks: Array<Task> = [];
 
-  createTask = (task: string) => {
+  createTask = (task: Task) => {
     this.tasks.push(task);
   };
 
-  getTasks = () => {
+  getAllTasks = () => {
     return this.tasks;
   };
 
@@ -22,5 +22,16 @@ export class TaskService {
   clearTasks = () => {
     this.tasks = [];
     return this.tasks;
+  };
+
+  setDone = (index: number, status: boolean) => {
+    const task = this.tasks.splice(index, 1)[0];
+    task.isDone = status;
+
+    if (!task.isDone) {
+      this.tasks.unshift(task);
+    } else {
+      this.tasks.push(task);
+    }
   };
 }

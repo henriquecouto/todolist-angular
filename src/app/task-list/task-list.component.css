@@ -4,10 +4,10 @@
 
 .todo-list td {
   padding: 10px;
-  width: 100%;
 }
 
 .todo-list {
+  width: 100%;
   border-collapse: collapse;
   color: #e9e9ec;
 }
@@ -18,8 +18,8 @@
   border-bottom: solid 1px #e9e9ec;
 }
 
-.btn-rm {
-  background-color: #552121;
+.btn-rm,
+.btn-fn {
   border-radius: 10px;
   font-size: 18px;
   border: none;
@@ -28,3 +28,12 @@
   margin: 5px;
   cursor: pointer;
 }
+
+.btn-rm {
+  background-color: #552121;
+}
+
+.btn-fn {
+  background-color: #215521;
+}
+
