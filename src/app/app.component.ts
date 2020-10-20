@@ -8,16 +8,4 @@ import { TaskService } from './task.service';
 })
 export class AppComponent {
   title = 'todo-app-list';
-  taskName = '';
-
-  constructor(private taskService: TaskService) {}
-
-  addTask = () => {
-    if (!this.taskName) {
-      return;
-    }
-
-    this.taskService.createTask(this.taskName);
-    this.taskName = '';
-  };
 }
