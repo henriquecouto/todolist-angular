@@ -1,4 +1,5 @@
 class Task {
+  readonly id: number;
   name: string;
   isDone: boolean;
 

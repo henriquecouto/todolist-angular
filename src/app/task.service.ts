@@ -1,37 +1,45 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Task from 'src/entities/Task';
+
+const API_URL = 'http://localhost:3000/tasks';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  tasks: Array<Task> = [];
+  private tasks: Array<Task> = [];
+
+  constructor(private http: HttpClient) {}
 
   createTask = (task: Task) => {
-    this.tasks.unshift(task);
+    return this.http
+      .post<Task>(API_URL, task)
+      .subscribe((response) => this.tasks.unshift(response));
   };
 
-  getAllTasks = () => {
+  getAllTasks = (): Array<Task> => {
+    this.http
+      .get<Task[]>(API_URL + '?isDone=false&_sort=id&_order=desc')
+      .subscribe((response) => response.map((task) => this.tasks.push(task)));
+
     return this.tasks;
   };
 
-  deleteTask = (index: number) => {
-    this.tasks.splice(index, 1);
-  };
-
-  clearTasks = () => {
-    this.tasks = [];
-    return this.tasks;
+  deleteTask = (taskToRemove: Task) => {
+    this.http.delete(API_URL + `/${taskToRemove.id}`).subscribe(() => {
+      const index = this.tasks.findIndex((task) => task.id === taskToRemove.id);
+      this.tasks.splice(index, 1);
+    });
   };
 
   setDone = (index: number, status: boolean) => {
-    const task = this.tasks.splice(index, 1)[0];
-    task.isDone = status;
-
-    if (!task.isDone) {
-      this.tasks.unshift(task);
-    } else {
-      this.tasks.push(task);
-    }
+    // const task = this.tasks.splice(index, 1)[0];
+    // task.isDone = status;
+    // if (!task.isDone) {
+    //   this.tasks.unshift(task);
+    // } else {
+    //   this.tasks.push(task);
+    // }
   };
 }

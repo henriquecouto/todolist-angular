@@ -7,11 +7,11 @@
     </tr>
     <tr *ngFor="let task of tasks; let index = index">
       <td (click)="makeDone(index, !task.isDone)">
-        <input type="checkbox" [checked]="task.isDone" >
+        <input type="checkbox" [checked]="task.isDone" />
       </td>
       <td [ngClass]="task.isDone && 'done'">{{ task.name }}</td>
       <td>
-        <button class="btn-rm" (click)="remove(index)">Remover</button>
+        <button class="btn-rm" (click)="remove(task)">Remover</button>
       </td>
     </tr>
   </table>

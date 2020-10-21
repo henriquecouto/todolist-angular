@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import Task from 'src/entities/Task';
 import { TaskService } from '../task.service';
 
@@ -8,17 +9,16 @@ import { TaskService } from '../task.service';
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  tasks: Array<Task>;
+  tasks: Array<Task> = [];
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
     this.tasks = this.taskService.getAllTasks();
-    console.log(this.tasks);
   }
 
-  remove = (index: number) => {
-    this.taskService.deleteTask(index);
+  remove = (task: Task) => {
+    this.taskService.deleteTask(task);
   };
 
   makeDone = (index: number, status: boolean) => {

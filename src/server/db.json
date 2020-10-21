@@ -1,9 +1,0 @@
-{
-  "tasks": [
-    { "name": "Tarefa 1", "isDone": true },
-    { "name": "Tarefa 2", "isDone": false },
-    { "name": "Tarefa 3", "isDone": true },
-    { "name": "Tarefa 4", "isDone": false },
-    { "name": "Tarefa 5", "isDone": false }
-  ]
-}
