@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import Task from 'src/entities/Task';
 import { TaskService } from '../task.service';
 
@@ -8,18 +9,19 @@ import { TaskService } from '../task.service';
   styleUrls: ['./create-task.component.css'],
 })
 export class CreateTaskComponent implements OnInit {
-  taskName = '';
+  taskForm: FormGroup;
 
-  constructor(private taskService: TaskService) {}
+  constructor(
+    private taskService: TaskService,
+    private formBuilder: FormBuilder
+  ) {
+    this.taskForm = this.formBuilder.group({ taskName: '' });
+  }
 
   ngOnInit() {}
 
-  addTask = () => {
-    if (!this.taskName) {
-      return;
-    }
-
-    this.taskService.createTask(new Task(this.taskName));
-    this.taskName = '';
+  onSubmitForm = ({ taskName }) => {
+    this.taskService.createTask(new Task(taskName));
+    this.taskForm.reset();
   };
 }
