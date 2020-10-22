@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import Task from 'src/entities/Task';
-import { TaskService } from '../task.service';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'app-create-task',

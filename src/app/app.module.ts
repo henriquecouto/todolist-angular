@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TaskListComponent } from './task-list/task-list.component';
-import { CreateTaskComponent } from './create-task/create-task.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 
 @NgModule({
   declarations: [AppComponent, TaskListComponent, CreateTaskComponent],
