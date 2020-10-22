@@ -9,19 +9,11 @@ import { TaskService } from '../../services/task.service';
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  tasks: Array<Task> = [];
+  @Input() tasks: Array<Task>;
+  @Input() remove: (task: Task) => void;
+  @Input() makeDone: (taskId: number, status: boolean) => void;
 
   constructor(private taskService: TaskService) {}
 
-  ngOnInit(): void {
-    this.tasks = this.taskService.getAllTasks();
-  }
-
-  remove = (task: Task) => {
-    this.taskService.deleteTask(task);
-  };
-
-  makeDone = (index: number, status: boolean) => {
-    this.taskService.setDone(index, status);
-  };
+  ngOnInit(): void {}
 }

@@ -1,7 +1,11 @@
 <div class="app-container">
   <div>
-    <app-create-task></app-create-task>
-    <app-task-list></app-task-list>
+    <app-create-task [create]="createTask"></app-create-task>
+    <app-task-list
+      [tasks]="tasks"
+      [remove]="removeTask"
+      [makeDone]="handleTaskDone"
+    ></app-task-list>
   </div>
 </div>
 
