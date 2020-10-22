@@ -1,6 +1,9 @@
 <div class="app-container">
   <div>
-    <app-create-task [create]="createTask"></app-create-task>
+    <app-create-task
+      [create]="createTask"
+      [projects]="projects"
+    ></app-create-task>
     <app-filter-tasks [filter]="loadTasks"></app-filter-tasks>
     <app-task-list
       [tasks]="tasks"

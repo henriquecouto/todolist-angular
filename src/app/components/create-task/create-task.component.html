@@ -22,6 +22,16 @@
   (ngSubmit)="onSubmitForm(taskForm.value)"
 >
   <input placeholder="Digite o nome da tarefa" formControlName="taskName" />
-  <input placeholder="Digite o nome do projeto" formControlName="projectName" />
+  <input
+    placeholder="Digite o nome do projeto"
+    formControlName="projectName"
+    list="projects"
+  />
+  <datalist id="projects">
+    <option *ngFor="let project of projects" value="{{ project.name }}">
+      {{ project.name }}
+    </option>
+  </datalist>
+
   <button type="submit" [disabled]="!taskForm.valid">Adicionar</button>
 </form>

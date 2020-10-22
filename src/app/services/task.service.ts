@@ -20,6 +20,10 @@ export class TaskService {
     return this.http.get<Task[]>(API_URL, { params });
   };
 
+  getAllProjects = (): Observable<Task[]> => {
+    return this.http.get<Task[]>(API_URL);
+  };
+
   delete = (taskToRemove: Task): Observable<Task> => {
     return this.http.delete<Task>(API_URL + `/${taskToRemove.id}`);
   };

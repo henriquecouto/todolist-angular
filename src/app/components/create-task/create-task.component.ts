@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import Project from 'src/entities/Project';
 import Task from 'src/entities/Task';
 
 @Component({
@@ -9,6 +10,7 @@ import Task from 'src/entities/Task';
 })
 export class CreateTaskComponent implements OnInit {
   @Input() create: (task: Task) => void;
+  @Input() projects: Array<Project>;
   taskForm: FormGroup;
 
   taskValidationMessages = {
@@ -30,7 +32,9 @@ export class CreateTaskComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.projects);
+  }
 
   get taskName() {
     return this.taskForm.get('taskName');
