@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import Task from 'src/entities/Task';
@@ -17,9 +17,12 @@ export class TaskService {
   };
 
   getAll = (): Observable<Task[]> => {
-    return this.http.get<Task[]>(
-      API_URL + '?isDone=false&_sort=id&_order=desc'
-    );
+    const params = new HttpParams()
+      .set('isDone', String(false))
+      .set('_sort', 'id')
+      .set('_order', 'desc');
+
+    return this.http.get<Task[]>(API_URL, { params });
   };
 
   delete = (taskToRemove: Task): Observable<Task> => {
