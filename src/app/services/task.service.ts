@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import Task from 'src/entities/Task';
+import { environment } from 'src/environments/environment';
 
-const API_URL = 'http://localhost:3000/tasks';
+const API_URL = environment.BASE_API_URL + '/tasks';
 
 @Injectable({
   providedIn: 'root',
