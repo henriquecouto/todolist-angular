@@ -1,3 +1,21 @@
+<div *ngFor="let validation of taskValidationMessages.taskName">
+  <div
+    class="error"
+    *ngIf="taskName.invalid && (taskName.dirty || taskName.touched)"
+  >
+    {{ validation.message }}
+  </div>
+</div>
+
+<div *ngFor="let validation of taskValidationMessages.projectName">
+  <div
+    class="error"
+    *ngIf="projectName.invalid && (projectName.dirty || projectName.touched)"
+  >
+    {{ validation.message }}
+  </div>
+</div>
+
 <form
   class="input-add-task"
   [formGroup]="taskForm"
@@ -5,5 +23,5 @@
 >
   <input placeholder="Digite o nome da tarefa" formControlName="taskName" />
   <input placeholder="Digite o nome do projeto" formControlName="projectName" />
-  <button type="submit">Adicionar</button>
+  <button type="submit" [disabled]="!taskForm.valid">Adicionar</button>
 </form>

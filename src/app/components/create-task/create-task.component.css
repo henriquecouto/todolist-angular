@@ -28,3 +28,16 @@
   margin: 5px;
   cursor: pointer;
 }
+
+.input-add-task button:disabled {
+  background-color: #919191;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 5px;
+  padding: 10px;
+  background-color: #552121;
+  border-radius: 10px;
+  color: #e9e9ec;
+}
