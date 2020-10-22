@@ -34,12 +34,13 @@ export class TaskService {
   };
 
   setDone = (index: number, status: boolean) => {
-    // const task = this.tasks.splice(index, 1)[0];
-    // task.isDone = status;
-    // if (!task.isDone) {
-    //   this.tasks.unshift(task);
-    // } else {
-    //   this.tasks.push(task);
-    // }
+    const task = this.tasks.splice(index, 1)[0];
+    task.isDone = status;
+
+    this.http.put(API_URL + `/${task.id}`, task).subscribe(() => {
+      if (!task.isDone) {
+        this.tasks.unshift(task);
+      }
+    });
   };
 }
