@@ -16,12 +16,7 @@ export class TaskService {
     return this.http.post<Task>(API_URL, task);
   };
 
-  getAll = (): Observable<Task[]> => {
-    const params = new HttpParams()
-      .set('isDone', String(false))
-      .set('_sort', 'id')
-      .set('_order', 'desc');
-
+  getAll = (params: HttpParams): Observable<Task[]> => {
     return this.http.get<Task[]>(API_URL, { params });
   };
 

@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import Task from 'src/entities/Task';
 import { TaskService } from './services/task.service';
@@ -11,14 +12,17 @@ export class AppComponent {
   title = 'todo-app-list';
   tasks: Array<Task> = [];
 
-  constructor(private taskService: TaskService) {
-    this.loadTasks();
-  }
+  constructor(private taskService: TaskService) {}
 
-  private loadTasks = () => {
+  loadTasks = (isDone: boolean, order: 'asc' | 'desc') => {
+    const params = new HttpParams()
+      .set('isDone', String(isDone))
+      .set('_sort', 'id')
+      .set('_order', order);
+
     this.taskService
-      .getAll()
-      .subscribe((response) => response.map((task) => this.tasks.push(task)));
+      .getAll(params)
+      .subscribe((response) => (this.tasks = response));
   };
 
   createTask = (task: Task) => {

@@ -1,0 +1,23 @@
+.filter-container {
+  padding: 5px;
+  margin: 40px 5px;
+  background-color: #212121;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-container select {
+  padding: 10px 0;
+  margin: 0 10px;
+  background-color: #212121;
+  border: none;
+  color: #e9e9ec;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.filter-container select::content {
+  width: 100%;
+  background-color: #212121;
+}

@@ -1,0 +1,14 @@
+<form
+  class="filter-container"
+  [formGroup]="filterForm"
+  (ngSubmit)="onSubmitForm(filterForm.value)"
+>
+  <select (change)="onSubmitForm(filterForm.value)" formControlName="isDone">
+    <option value="false">A fazer</option>
+    <option value="true">Concluídas</option>
+  </select>
+  <select (change)="onSubmitForm(filterForm.value)" formControlName="order">
+    <option value="asc">Crescente</option>
+    <option value="desc">Decrescente</option>
+  </select>
+</form>
