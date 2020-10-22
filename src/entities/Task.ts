@@ -2,9 +2,10 @@ class Task {
   readonly id: number;
   name: string;
   isDone: boolean;
+  project: string;
 
-  constructor(name: string) {
-    this.name = name;
+  constructor(props: Omit<Task, 'id' | 'isDone'>) {
+    Object.assign(this, props);
     this.isDone = false;
   }
 }
