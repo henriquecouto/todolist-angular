@@ -3,7 +3,12 @@
     <h1 class="title">Projetos</h1>
 
     <ul class="project-list">
-      <li *ngFor="let project of projects">{{ project.name }}</li>
+      <li
+        *ngFor="let project of projects"
+        [routerLink]="['/project', project.name]"
+      >
+        {{ project.name }}
+      </li>
     </ul>
   </div>
 </div>
