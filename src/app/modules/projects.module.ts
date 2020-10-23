@@ -7,6 +7,6 @@ import { AppRoutingModule } from '../app-routing.module';
 @NgModule({
   declarations: [ProjectsAreaComponent, ProjectDetailsComponent],
   imports: [CommonModule, AppRoutingModule],
-  exports: [ProjectsAreaComponent],
+  exports: [ProjectsAreaComponent, ProjectDetailsComponent],
 })
 export class ProjectsModule {}
