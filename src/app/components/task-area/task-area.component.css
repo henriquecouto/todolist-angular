@@ -1,0 +1,12 @@
+.task-area-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.task-area-container div {
+  max-width: 960px;
+  width: 100%;
+}

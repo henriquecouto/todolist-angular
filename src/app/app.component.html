@@ -1,16 +1,3 @@
-<div class="app-container">
-  <div>
-    <app-create-task
-      [create]="createTask"
-      [projects]="projects"
-    ></app-create-task>
-    <app-filter-tasks [filter]="loadTasks"></app-filter-tasks>
-    <app-task-list
-      [tasks]="tasks"
-      [remove]="removeTask"
-      [makeDone]="handleTaskDone"
-    ></app-task-list>
-  </div>
-</div>
+<app-task-area></app-task-area>
 
 <router-outlet></router-outlet>
