@@ -1,5 +1,6 @@
 class Task {
   readonly id: number;
+  readonly date?: Date;
   name: string;
   isDone: boolean;
   project: string;
@@ -7,6 +8,9 @@ class Task {
   constructor(props: Omit<Task, 'id' | 'isDone'>) {
     Object.assign(this, props);
     this.isDone = false;
+    if (!props.date) {
+      this.date = new Date();
+    }
   }
 }
 
