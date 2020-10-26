@@ -32,6 +32,11 @@
       {{ project.name }}
     </option>
   </datalist>
+  <input
+    placeholder="Selecione uma data"
+    formControlName="taskDate"
+    type="date"
+  />
 
   <button type="submit" [disabled]="!taskForm.valid">Adicionar</button>
 </form>

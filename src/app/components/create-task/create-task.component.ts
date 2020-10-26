@@ -29,12 +29,11 @@ export class CreateTaskComponent implements OnInit {
     this.taskForm = new FormGroup({
       taskName: new FormControl('', Validators.required),
       projectName: new FormControl('', Validators.required),
+      taskDate: new FormControl(new Date()),
     });
   }
 
-  ngOnInit() {
-    console.log(this.projects);
-  }
+  ngOnInit() {}
 
   get taskName() {
     return this.taskForm.get('taskName');
@@ -44,12 +43,14 @@ export class CreateTaskComponent implements OnInit {
     return this.taskForm.get('projectName');
   }
 
-  onSubmitForm = ({ taskName, projectName }) => {
+  onSubmitForm = ({ taskName, projectName, taskDate }) => {
     if (!this.taskForm.valid) {
       return;
     }
 
-    this.create(new Task({ name: taskName, project: projectName }));
+    const date = new Date(taskDate + ' 00:00:00');
+
+    this.create(new Task({ name: taskName, project: projectName, date }));
     this.taskForm.reset();
   };
 }
