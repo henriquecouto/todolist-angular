@@ -1,3 +1,13 @@
 <h1>Nome do projeto: {{ projectName }}</h1>
 
-<project-task-list [tasks]="tasks"></project-task-list>
+<ul class="task-list">
+  <li *ngFor="let task of tasks">
+    {{ task.name }}
+  </li>
+</ul>
+
+<app-task-list
+  [tasks]="tasks"
+  [remove]="removeTask"
+  [makeDone]="makeTaskDone"
+></app-task-list>

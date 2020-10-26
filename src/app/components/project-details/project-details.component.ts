@@ -40,4 +40,8 @@ export class ProjectDetailsComponent implements OnInit {
       .getAll(params)
       .subscribe((response) => response.map((task) => this.tasks.push(task)));
   };
+
+  removeTask = (task: Task) => {};
+
+  makeTaskDone = (taskId: number, status: boolean) => {};
 }

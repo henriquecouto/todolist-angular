@@ -3,19 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ProjectsAreaComponent } from '../components/projects-area/projects-area.component';
 import { ProjectDetailsComponent } from '../components/project-details/project-details.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { ProjectTaskListComponent } from '../components/project-task-list/project-task-list.component';
+import { TaskListModule } from '../components/task-list/task-list.module';
 
 @NgModule({
-  declarations: [
-    ProjectsAreaComponent,
-    ProjectDetailsComponent,
-    ProjectTaskListComponent,
-  ],
-  imports: [CommonModule, AppRoutingModule],
-  exports: [
-    ProjectsAreaComponent,
-    ProjectDetailsComponent,
-    ProjectTaskListComponent,
-  ],
+  declarations: [ProjectsAreaComponent, ProjectDetailsComponent],
+  imports: [CommonModule, AppRoutingModule, TaskListModule],
+  exports: [ProjectsAreaComponent, ProjectDetailsComponent],
 })
 export class ProjectsModule {}
