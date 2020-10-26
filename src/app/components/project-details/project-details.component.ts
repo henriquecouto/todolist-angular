@@ -1,14 +1,7 @@
 import { HttpParams } from '@angular/common/http';
-import {
-  Component,
-  ContentChild,
-  ElementRef,
-  OnInit,
-  Renderer2,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
-import Project from 'src/entities/Project';
 import Task from 'src/entities/Task';
 
 @Component({
@@ -41,7 +34,15 @@ export class ProjectDetailsComponent implements OnInit {
       .subscribe((response) => response.map((task) => this.tasks.push(task)));
   };
 
-  removeTask = (task: Task) => {};
+  removeTask = (task: Task) => {
+    this.taskService.delete(task);
+  };
 
-  makeTaskDone = (taskId: number, status: boolean) => {};
+  handleTaskDone = (taskId: number, status: boolean) => {
+    const index = this.tasks.findIndex((task) => task.id === taskId);
+    const newTask = this.tasks[index];
+    newTask.isDone = status;
+
+    this.taskService.update(taskId, newTask).subscribe();
+  };
 }
