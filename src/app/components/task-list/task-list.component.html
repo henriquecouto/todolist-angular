@@ -6,7 +6,7 @@
       <td class="table-title">Data</td>
       <td class="table-title">Ações</td>
     </tr>
-    <tr *ngFor="let task of tasks; let index = index">
+    <tr class="task-item" *ngFor="let task of tasks; let index = index">
       <td (click)="makeDone(task.id, !task.isDone)">
         <input type="checkbox" [checked]="task.isDone" />
       </td>
